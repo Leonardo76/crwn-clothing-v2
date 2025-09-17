@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './categories.scss'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    const categories = [
+        {
+            id: 1,
+            title: 'Hats'
+        },
+        {
+            id: 2,
+            title: 'Jackets'
+        },
+        {
+            id: 3,
+            title: 'Sneakers'
+        },
+        {
+            id: 4,
+            title: 'Woman'
+        },
+        {
+            id: 5,
+            title: 'Man'
+        },
+    ]
+
+    return (
+        (
+            <div className='categories-container'>
+                {categories.map((category) => (
+                    <div className='category-container' key={`${category.id}-${category.title}`}>
+                        <div className="background-image"></div>
+                        <div className='category-body-container'>
+                            <h2>{category.title}</h2>
+                            <p>Shop Now</p>
+                        </div>
+                    </div>
+                ))}
+
+
+            </div>
+        )
+    );
+};
 
 export default App
